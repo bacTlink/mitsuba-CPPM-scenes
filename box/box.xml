@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+
+	Automatically converted from Wavefront OBJ
+
+-->
+
+<scene version="0.6.0">
+	<integrator id="integrator" type="sppm">
+		<integer name="kNN" value="10" />
+		<integer name="maxDepth" value="10" />
+		<integer name="maxPasses" value="1000000" />
+        <integer name="stepSnapshot" value="10000" />
+        <integer name="photonCount" value="65536" />
+        <float name="k" value="0.8" />
+        <float name="beta" value="1.2" />
+	</integrator>
+	
+	<sensor id="Camera-camera" type="perspective">
+		<transform name="toWorld">
+			<lookat origin="-0.24178, -0.133496, 2.43055" target="0.0, -0.05, 0.25" up="0.0, 1.0, 0.0"/>
+		</transform>
+		<float name="fov" value="35.0"/>
+		<string name="fovAxis" value="y"/>
+		<float name="nearClip" value="0.10000000149011612"/>
+		<float name="farClip" value="1000000.0"/>
+
+		<sampler id="Camera-camera_sampler" type="ldsampler">
+			<integer name="sampleCount" value="16"/>
+		</sampler>
+
+		<film id="Camera-camera_film" type="hdrfilm">
+			<integer name="width" value="800"/>
+			<integer name="height" value="600"/>
+			<string name="fileFormat" value="openexr" />
+			<string name="pixelFormat" value="rgb"/>
+			<string name="componentFormat" value="float16"/>
+			<boolean name="attachLog" value="false"/>
+			<boolean name="banner" value="false"/>
+			<boolean name="highQualityEdges" value="false"/>
+		</film>
+	</sensor>
+
+	<shape type="rectangle">
+		<transform name="toWorld">
+			<scale x="0.004" y="0.002" z="1"/>
+			<lookat origin="0.323573717848716, 0.42, 0.494796481472676"
+                target="0.323573717848716, -1.0, 0.494796481472676" up="0.0, 0.0, 1.0"/>
+		</transform>
+		<emitter type="area">
+			<spectrum name="radiance" value="31250"/>
+			<float name="samplingWeight" value="1"/>
+		</emitter>
+	</shape>
+
+	<shape type="rectangle">
+		<transform name="toWorld">
+			<scale x="0.004" y="0.002" z="1"/>
+			<lookat origin="-0.343573717848716, 0.42, 0.434796481472676"
+                target="-0.343573717848716, -1.0, 0.434796481472676" up="0.0, 0.0, 1.0"/>
+		</transform>
+		<emitter type="area">
+			<spectrum name="radiance" value="31250"/>
+			<float name="samplingWeight" value="1"/>
+		</emitter>
+	</shape>
+
+    <bsdf id="glass_material" type="dielectric">
+        <string name="intIOR" value="bk7"/>
+        <string name="extIOR" value="air"/>
+        <spectrum name="specularReflectance" value="0.15"/>
+        <spectrum name="specularTransmittance" value="1"/>
+    </bsdf>
+
+	<bsdf id="emitter_material" type="diffuse">
+		<srgb name="reflectance" value="1 1 1"/>
+	</bsdf>
+
+    <bsdf id="metal_material" type="conductor">
+        <string name="material" value="none"/>
+        <string name="extEta" value="air"/>
+        <spectrum name="specularReflectance" value="1.0"/>
+    </bsdf>
+
+	<bsdf id="diffuse_yellow_material" type="diffuse">
+		<srgb name="reflectance" value="0.94902 0.94902 0.09804"/>
+	</bsdf>
+
+	<bsdf id="diffuse_blue_material" type="diffuse">
+		<srgb name="reflectance" value="0.09804 0.09804 0.94902"/>
+	</bsdf>
+
+	<bsdf id="diffuse_white_material" type="diffuse">
+		<srgb name="reflectance" value="0.91765 0.91765 0.91765"/>
+	</bsdf>
+
+	<shape id="box_mesh" type="serialized">
+		<string name="filename" value="box.serialized"/>
+		<integer name="shapeIndex" value="0"/>
+		<ref name="bsdf" id="diffuse_white_material"/>
+	</shape>
+
+	<shape id="box_1_mesh" type="serialized">
+		<string name="filename" value="box.serialized"/>
+		<integer name="shapeIndex" value="1"/>
+		<ref name="bsdf" id="metal_material"/>
+	</shape>
+
+	<shape id="box_2_mesh" type="serialized">
+		<string name="filename" value="box.serialized"/>
+		<integer name="shapeIndex" value="2"/>
+		<ref name="bsdf" id="diffuse_blue_material"/>
+	</shape>
+
+	<shape id="box_3_mesh" type="serialized">
+		<string name="filename" value="box.serialized"/>
+		<integer name="shapeIndex" value="3"/>
+		<ref name="bsdf" id="diffuse_yellow_material"/>
+	</shape>
+
+	<shape id="box_4_mesh" type="serialized">
+		<string name="filename" value="box.serialized"/>
+		<integer name="shapeIndex" value="4"/>
+		<ref name="bsdf" id="metal_material"/>
+	</shape>
+
+	<shape id="box_5_mesh" type="serialized">
+		<string name="filename" value="box.serialized"/>
+		<integer name="shapeIndex" value="5"/>
+		<ref name="bsdf" id="glass_material"/>
+	</shape>
+
+	<shape id="box_6_mesh" type="serialized">
+		<string name="filename" value="box.serialized"/>
+		<integer name="shapeIndex" value="6"/>
+		<ref name="bsdf" id="metal_material"/>
+	</shape>
+
+	<shape id="box_7_mesh" type="serialized">
+		<string name="filename" value="box.serialized"/>
+		<integer name="shapeIndex" value="7"/>
+		<ref name="bsdf" id="glass_material"/>
+	</shape>
+
+	<shape id="box_8_mesh" type="serialized">
+		<string name="filename" value="box.serialized"/>
+		<integer name="shapeIndex" value="8"/>
+		<ref name="bsdf" id="emitter_material"/>
+	</shape>
+
+</scene>
