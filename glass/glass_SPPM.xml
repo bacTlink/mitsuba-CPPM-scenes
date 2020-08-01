@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<scene version="0.6.0">
+	<integrator type="sppm">
+		<integer name="maxDepth" value="33"/>
+		<boolean name="strictNormals" value="true"/>
+		<integer name="kNN" value="10" />
+		<integer name="maxPasses" value="1000" />
+        <integer name="stepSnapshot" value="1" />
+        <integer name="photonCount" value="65536" />
+	</integrator>
+
+	<sensor type="perspective">
+		<float name="fov" value="35"/>
+		<transform name="toWorld">
+			<matrix value="-0.999993 -5.92355e-005 0.00373545 -0.0893585 3.638e-012 0.999874 0.0158556 2.69412 -0.00373592 0.0158555 -0.999867 25.6726 0 0 0 1"/>
+		</transform>
+
+		<sampler type="independent">
+			<integer name="sampleCount" value="4"/>
+		</sampler>
+
+		<film type="hdrfilm">
+			<integer name="width" value="1500"/>
+			<integer name="height" value="1000"/>
+<!--
+			<integer name="width" value="1280"/>
+			<integer name="height" value="720"/>
+-->
+			<boolean name="banner" value="false"/>
+
+			<rfilter type="tent"/>
+		</film>
+	</sensor>
+
+	<bsdf type="twosided" id="Rightwall">
+        <bsdf type="diffuse">
+            <rgb name="reflectance" value="0.1, 0.1, 0.1"/>
+        </bsdf>
+	</bsdf>
+
+	<bsdf type="twosided" id="Leftwall">
+        <bsdf type="diffuse">
+            <rgb name="reflectance" value="0.1, 0.1, 0.1"/>
+        </bsdf>
+	</bsdf>
+
+	<bsdf type="twosided" id="Frontwall">
+        <bsdf type="diffuse">
+            <rgb name="reflectance" value="1, 1, 1"/>
+        </bsdf>
+	</bsdf>
+
+	<bsdf type="twosided" id="Backdrop">
+        <bsdf type="diffuse">
+            <rgb name="reflectance" value="1, 1, 1"/>
+        </bsdf>
+	</bsdf>
+
+	<bsdf type="twosided" id="Ceil">
+        <bsdf type="diffuse">
+            <rgb name="reflectance" value="1, 1, 1"/>
+        </bsdf>
+	</bsdf>
+
+	<bsdf type="twosided" id="Floor">
+		<bsdf type="roughconductor">
+			<float name="alpha" value="0.01"/>
+			<string name="distribution" value="ggx"/>
+			<float name="extEta" value="1"/>
+			<rgb name="specularReflectance" value="0.578596, 0.578596, 0.578596"/>
+			<rgb name="eta" value="1.65746, 0.880369, 0.521229"/>
+			<rgb name="k" value="9.22387, 6.26952, 4.837"/>
+		</bsdf>
+	</bsdf>
+
+	<bsdf type="dielectric" id="WaterAir">
+    <!-- qiu: lan se
+    <rgb name="specularTransmittance" value="0.50, 0.875, 0.871"/>
+    <rgb name="specularReflectance" value="0.50, 0.875, 0.871"/>
+    -->
+    <rgb name="specularTransmittance" value="0.341, 0.980, 1.0"/>
+    <rgb name="specularReflectance" value="0.341, 0.980, 1.0"/>
+
+		<float name="intIOR" value="1.33"/>
+		<float name="extIOR" value="1"/>
+	</bsdf>
+
+	<bsdf type="dielectric" id="WaterAirFloor">
+		<float name="intIOR" value="1.33"/>
+		<float name="extIOR" value="1"/>
+	</bsdf>
+
+	<bsdf type="dielectric" id="IceAir">
+		<float name="intIOR" value="1.31"/>
+		<float name="extIOR" value="1"/>
+	</bsdf>
+
+	<bsdf type="dielectric" id="Glass">
+    <rgb name="specularTransmittance" value="1, 1.0, 1.0"/>
+    <rgb name="specularReflectance" value="1, 1.0, 1.0"/>
+
+		<float name="intIOR" value="1.5"/>
+		<float name="extIOR" value="1"/>
+	</bsdf>
+
+	<bsdf type="dielectric" id="AirIce">
+		<float name="intIOR" value="0.763"/>
+		<float name="extIOR" value="1"/>
+	</bsdf>
+
+	<shape type="obj">
+		<string name="filename" value="models/Mesh008.obj"/>
+		<transform name="toWorld">
+			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+		</transform>
+
+		<ref id="WaterAirFloor"/>
+	</shape>
+
+	<shape type="obj">
+		<string name="filename" value="models/Mesh005.obj"/>
+		<transform name="toWorld">
+			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+		</transform>
+
+		<ref id="WaterAirFloor"/>
+	</shape>
+
+	<shape type="obj">
+		<string name="filename" value="models/Mesh004.obj"/>
+		<transform name="toWorld">
+			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+		</transform>
+
+		<ref id="IceAir"/>
+	</shape>
+
+	<shape type="obj">
+		<string name="filename" value="models/Mesh003.obj"/>
+		<transform name="toWorld">
+			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+		</transform>
+		<boolean name="faceNormals" value="true"/>
+
+		<ref id="AirIce"/>
+	</shape>
+
+	<shape type="obj">
+		<string name="filename" value="models/Mesh010.obj"/>
+		<transform name="toWorld">
+			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+		</transform>
+
+		<ref id="IceAir"/>
+	</shape>
+
+	<shape type="obj">
+		<string name="filename" value="models/Mesh009.obj"/>
+		<transform name="toWorld">
+			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+		</transform>
+		<boolean name="faceNormals" value="true"/>
+
+		<ref id="AirIce"/>
+	</shape>
+
+	<shape type="obj">
+		<string name="filename" value="models/Mesh012.obj"/>
+		<transform name="toWorld">
+			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+		</transform>
+		<boolean name="faceNormals" value="true"/>
+
+		<ref id="AirIce"/>
+	</shape>
+
+	<shape type="obj">
+		<string name="filename" value="models/Mesh014.obj"/>
+		<transform name="toWorld">
+			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+		</transform>
+
+		<ref id="IceAir"/>
+	</shape>
+
+	<shape type="obj">
+		<string name="filename" value="models/Mesh015.obj"/>
+		<transform name="toWorld">
+			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+		</transform>
+		<boolean name="faceNormals" value="true"/>
+
+		<ref id="AirIce"/>
+	</shape>
+
+	<shape type="obj">
+		<string name="filename" value="models/Mesh006.obj"/>
+		<transform name="toWorld">
+			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+		</transform>
+
+		<ref id="IceAir"/>
+	</shape>
+
+	<shape type="obj">
+		<string name="filename" value="models/Mesh002.obj"/>
+		<transform name="toWorld">
+			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+		</transform>
+		<boolean name="faceNormals" value="true"/>
+
+		<ref id="AirIce"/>
+	</shape>
+
+	<shape type="obj">
+		<string name="filename" value="models/Mesh001.obj"/>
+		<transform name="toWorld">
+			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+		</transform>
+
+		<ref id="IceAir"/>
+	</shape>
+
+	<shape type="obj">
+		<string name="filename" value="models/Mesh007.obj"/>
+		<transform name="toWorld">
+			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+		</transform>
+		<boolean name="faceNormals" value="true"/>
+
+		<ref id="Backdrop"/>
+	</shape>
+
+	<shape type="obj">
+		<string name="filename" value="models/Mesh016.obj"/>
+		<transform name="toWorld">
+			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+		</transform>
+		<boolean name="faceNormals" value="true"/>
+
+		<ref id="Leftwall"/>
+	</shape>
+
+	<shape type="obj">
+		<string name="filename" value="models/Mesh017.obj"/>
+		<transform name="toWorld">
+			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+		</transform>
+		<boolean name="faceNormals" value="true"/>
+
+		<ref id="Rightwall"/>
+	</shape>
+
+	<shape type="obj">
+		<string name="filename" value="models/Mesh018.obj"/>
+		<transform name="toWorld">
+			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+		</transform>
+		<boolean name="faceNormals" value="true"/>
+
+		<ref id="Frontwall"/>
+	</shape>
+
+	<shape type="obj">
+		<string name="filename" value="models/Mesh019.obj"/>
+		<transform name="toWorld">
+			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+		</transform>
+		<boolean name="faceNormals" value="true"/>
+
+		<ref id="Ceil"/>
+	</shape>
+
+	<shape type="obj">
+		<string name="filename" value="models/Mesh011.obj"/>
+		<transform name="toWorld">
+			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+		</transform>
+		<boolean name="faceNormals" value="true"/>
+
+		<ref id="Floor"/>
+	</shape>
+
+	<shape type="obj">
+		<string name="filename" value="models/Mesh013.obj"/>
+		<transform name="toWorld">
+			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+		</transform>
+
+		<ref id="Glass"/>
+	</shape>
+
+	<shape type="obj">
+		<string name="filename" value="models/Mesh000.obj"/>
+		<transform name="toWorld">
+			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+		</transform>
+
+		<ref id="WaterAir"/>
+	</shape>
+
+        <emitter type="spot">
+		<transform name="toWorld">
+                        <lookat origin="10,5,30" target="-10,0,-30" up="0,1,0" />
+		</transform>
+		<float name="cutoffAngle" value="10" />
+		<float name="beamWidth" value="0" />
+		<!--<spectrum name="intensity" value="229, 196, 135"/>-->
+		<!-- <spectrum name="intensity" value="159.155, 270.563, 318.310"/> -->
+		<spectrum name="intensity" value="190, 254, 254"/>
+	</emitter>
+
+<!--
+	<shape type="rectangle">
+		<transform name="toWorld">
+                        <lookat origin="0,5,30" target="0,0,-10" up="0,1,0" />
+                        <scale x="0.01" y="0.01" z="0.01" />
+		</transform>
+		<bsdf type="twosided">
+			<bsdf type="diffuse">
+				<rgb name="reflectance" value="0, 0, 0"/>
+			</bsdf>
+		</bsdf>
+
+		<emitter type="area">
+			<rgb name="radiance" value="159155, 270563, 318310"/>
+		</emitter>
+	</shape>
+-->
+</scene>
