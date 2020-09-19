@@ -1,3 +1,13 @@
 # CPPM-scenes
 
-![Teaser](https://github.com/bacTlink/CPPM-scenes/raw/master/glass_CPPM_ref.png)
+![Teaser (glass)](glass_CPPM_ref.png)
+
+![artware](artware/artware.png)
+
+![box](box/box.png)
+
+![dining-room](dining-room/dining.jpg)
+
+![cornell-box](cornell-box/cbox.png)
+
+![water](water/water.jpg)
