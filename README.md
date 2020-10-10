@@ -11,3 +11,5 @@
 ![cornell-box](cornell-box/cbox.png)
 
 ![water](water/water.jpg)
+
+![cbox-spotlight](cornell-box-spotlight/cbox-spotlight.png)
