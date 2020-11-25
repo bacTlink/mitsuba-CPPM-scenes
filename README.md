@@ -1,4 +1,4 @@
-# CPPM-scenes
+# CPPM scenes
 
 ![Teaser (glass)](glass_CPPM_ref.png)
 
@@ -13,3 +13,7 @@
 ![water](water/water.jpg)
 
 ![cbox-spotlight](cornell-box-spotlight/cbox-spotlight.png)
+
+# Additional scenes
+
+![bathroom](bathroom/bathroom_VCM__8000samples.png)
