@@ -6,6 +6,7 @@
 		<boolean name="strictNormals" value="true" />
         <boolean name="useVC" value="true" />
         <boolean name="useVM" value="true" />
+        <boolean name="showVCMWeight" value="true" />
         <integer name="stepSnapshot" value="1000" />
 	</integrator>
 	<sensor type="perspective" >
@@ -325,7 +326,10 @@
 	<shape type="obj" >
 		<string name="filename" value="models/Mesh235.obj" />
 		<transform name="toWorld" >
-			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+			<matrix value="1 0 0 0
+                           0 1 0 0
+                           0 0 1.04343 0.04254
+                           0 0 0 1"/>
 		</transform>
 		<ref id="WhiteWood" />
 	</shape>
