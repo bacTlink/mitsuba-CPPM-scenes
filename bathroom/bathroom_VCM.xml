@@ -6,7 +6,8 @@
 		<boolean name="strictNormals" value="true" />
         <boolean name="useVC" value="true" />
         <boolean name="useVM" value="true" />
-        <boolean name="showVCMWeight" value="true" />
+        <boolean name="showVCMContrib" value="true" />
+        <boolean name="showBandwidth" value="true" />
         <integer name="stepSnapshot" value="1000" />
 	</integrator>
 	<sensor type="perspective" >
@@ -26,6 +27,7 @@
 			<string name="fileFormat" value="openexr" />
 			<string name="pixelFormat" value="rgb" />
 			<boolean name="banner" value="false" />
+            <boolean name="attachLog" value="false"/>
 		</film>
 	</sensor>
 	<bsdf type="mask" id="Rug" >
@@ -434,7 +436,7 @@
 		</transform>
 		<ref id="Light" />
 		<emitter type="area" >
-			<rgb name="radiance" value="1, 1, 1"/>
+			<rgb name="radiance" value="8, 8, 8"/>
 		</emitter>
 	</shape>
 	<shape type="obj" >
@@ -444,6 +446,9 @@
 		</transform>
 		<ref id="BulbGlass" />
 	</shape>
+    <!--
+        Left most
+    -->
 	<shape type="obj" >
 		<string name="filename" value="models/Mesh199.obj" />
 		<transform name="toWorld" >
@@ -458,6 +463,7 @@
 		</transform>
 		<ref id="BulbGlass" />
 	</shape>
+    <!-- Left most -->
 	<shape type="obj" >
 		<string name="filename" value="models/Mesh317.obj" />
 		<transform name="toWorld" >
@@ -465,7 +471,7 @@
 		</transform>
 		<ref id="Light" />
 		<emitter type="area" >
-			<rgb name="radiance" value="252, 199, 59"/>
+			<rgb name="radiance" value="2016, 1592, 472"/>
 		</emitter>
 	</shape>
 	<shape type="obj" >
@@ -475,6 +481,7 @@
 		</transform>
 		<ref id="BulbGlass" />
 	</shape>
+    <!-- Second form the left -->
 	<shape type="obj" >
 		<string name="filename" value="models/Mesh540.obj" />
 		<transform name="toWorld" >
@@ -482,7 +489,7 @@
 		</transform>
 		<ref id="Light" />
 		<emitter type="area" >
-			<rgb name="radiance" value="252, 199, 59"/>
+			<rgb name="radiance" value="2016, 1592, 472"/>
 		</emitter>
 	</shape>
 	<shape type="obj" >
@@ -492,6 +499,7 @@
 		</transform>
 		<ref id="BulbGlass" />
 	</shape>
+    <!-- Second from the left -->
 	<shape type="obj" >
 		<string name="filename" value="models/Mesh349.obj" />
 		<transform name="toWorld" >
@@ -506,6 +514,9 @@
 		</transform>
 		<ref id="BulbGlass" />
 	</shape>
+    <!--
+        second from the right
+    -->
 	<shape type="obj" >
 		<string name="filename" value="models/Mesh229.obj" />
 		<transform name="toWorld" >
@@ -520,6 +531,7 @@
 		</transform>
 		<ref id="BulbGlass" />
 	</shape>
+    <!-- second from the right -->
 	<shape type="obj" >
 		<string name="filename" value="models/Mesh166.obj" />
 		<transform name="toWorld" >
@@ -527,7 +539,7 @@
 		</transform>
 		<ref id="Light" />
 		<emitter type="area" >
-			<rgb name="radiance" value="252, 199, 59"/>
+			<rgb name="radiance" value="2016, 1592, 472"/>
 		</emitter>
 	</shape>
 	<shape type="obj" >
@@ -685,6 +697,9 @@
 		<boolean name="faceNormals" value="true" />
 		<ref id="Painting2" />
 	</shape>
+    <!--
+        frame of painting
+    -->
 	<shape type="obj" >
 		<string name="filename" value="models/Mesh424.obj" />
 		<transform name="toWorld" >
@@ -6320,6 +6335,7 @@
 		</transform>
 		<ref id="BulbGlass" />
 	</shape>
+        <!--
 	<shape type="obj" >
 		<string name="filename" value="models/Mesh408.obj" />
 		<transform name="toWorld" >
@@ -6328,9 +6344,11 @@
 		<boolean name="faceNormals" value="true" />
 		<ref id="Light" />
 		<emitter type="area" >
-			<rgb name="radiance" value="252, 199, 59"/>
+			<rgb name="radiance" value="2016, 1592, 472"/>
 		</emitter>
 	</shape>
+        -->
+    <!-- Right most -->
 	<shape type="obj" >
 		<string name="filename" value="models/Mesh002.obj" />
 		<transform name="toWorld" >
@@ -6338,7 +6356,7 @@
 		</transform>
 		<ref id="Light" />
 		<emitter type="area" >
-			<rgb name="radiance" value="252, 199, 59"/>
+			<rgb name="radiance" value="2016, 1592, 472"/>
 		</emitter>
 	</shape>
 	<shape type="obj" >
@@ -6348,6 +6366,9 @@
 		</transform>
 		<ref id="BulbGlass" />
 	</shape>
+    <!--
+      Right most
+    -->
 	<shape type="obj" >
 		<string name="filename" value="models/Mesh000.obj" />
 		<transform name="toWorld" >
