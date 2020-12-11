@@ -16,4 +16,4 @@
 
 # Additional scenes
 
-![bathroom](bathroom/bathroom_VCM__10000samples.png)
+![bathroom](bathroom/bathroom_VCM.png)
