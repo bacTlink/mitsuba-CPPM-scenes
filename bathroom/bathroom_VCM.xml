@@ -29,6 +29,13 @@
 			<boolean name="banner" value="false" />
             <boolean name="attachLog" value="false"/>
 		</film>
+        <!--
+		<film type="ldrfilm" >
+			<integer name="width" value="1024" />
+			<integer name="height" value="1024" />
+			<boolean name="banner" value="false" />
+		</film>
+        -->
 	</sensor>
 	<bsdf type="mask" id="Rug" >
 		<texture name="opacity" type="bitmap" >
@@ -430,15 +437,20 @@
 		<boolean name="faceNormals" value="true" />
 		<ref id="Wood" />
 	</shape>
+    <!--
 	<shape type="rectangle" >
 		<transform name="toWorld" >
-			<matrix value="-2.84819e-008 -5.69636e-008 1.30317 -2.89823 2.84819e-008 1 4.37114e-008 1.40504 -0.65159 4.37114e-008 -5.69636e-008 -1.39266 0 0 0 1"/>
+			<matrix value="-2.84819e-008 -5.69636e-008 1.30317 -2.89823
+                            2.84819e-008 1 4.37114e-008 1.40504
+                            -0.65159 4.37114e-008 -5.69636e-008 -1.39266
+                            0 0 0 1"/>
 		</transform>
 		<ref id="Light" />
 		<emitter type="area" >
 			<rgb name="radiance" value="8, 8, 8"/>
 		</emitter>
 	</shape>
+    -->
 	<shape type="obj" >
 		<string name="filename" value="models/Mesh309.obj" />
 		<transform name="toWorld" >
@@ -6313,10 +6325,22 @@
 		<boolean name="faceNormals" value="true" />
 		<ref id="Wallpaper" />
 	</shape>
+    <shape type="rectangle" >
+		<transform name="toWorld" >
+            <rotate x="1" angle="90"/>
+            <scale value="0.2" />
+            <translate x="-0.5" y="2.71" z="-0.5"/>
+            <!--<lookat origin="0 2.5 -2" target="0 0 -2" up="1, 0, 0"/>-->
+		</transform>
+		<ref id="Light" />
+		<emitter type="area" >
+			<rgb name="radiance" value="25, 25, 25"/>
+		</emitter>
+    </shape>
 	<shape type="obj" >
 		<string name="filename" value="models/Mesh003.obj" />
 		<transform name="toWorld" >
-			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+			<matrix value="1 0 0 0 0 1 0 -0.07 0 0 1 0 0 0 0 1"/>
 		</transform>
 		<boolean name="faceNormals" value="true" />
 		<ref id="Ceiling" />
