@@ -7,7 +7,6 @@
         <boolean name="useVC" value="true" />
         <boolean name="useVM" value="true" />
         <boolean name="showVCMContrib" value="true" />
-        <float name="initialRadius" value="0.05" />
         <integer name="stepSnapshot" value="1000" />
 	</integrator>
 	<sensor type="perspective" >
@@ -26,6 +25,7 @@
 			<integer name="height" value="720" />
 			<string name="fileFormat" value="openexr" />
 			<boolean name="banner" value="false" />
+            <boolean name="attachLog" value="false"/>
 		</film>
 	</sensor>
 	<bsdf type="twosided" id="Wall">
